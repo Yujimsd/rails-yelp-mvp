@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Reviews</h1>
+  <div class="row">
+    <ul>
+    <% @reviews.each do |review| %>
+      <div class="review-card">
+        <p><%= review.content %></p>
+        <p><%= review.rating %></p>
+        </li>
+      </div>
+    <% end %>
+    </ul>
+  </div>
+  <%= link_to new_review_path do %>
+    <i class="fas fa-plus-circle"></i>
+  <% end %>
+</div>

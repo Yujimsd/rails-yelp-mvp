@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.category %></p>
+      <p><%= @restaurant.phone_number %></p>
+      <p>
+        <%= link_to edit_restaurant_path(@restaurant) do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </p>
+      <p>
+        <%= link_to restaurant_path(@restaurant), method: :delete do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </p>
+      <p>
+        <%= link_to "Home", restaurants_path  %>
+      </p>
+      <p>
+        <%= link_to "New Review", new_restaurant_review_path(@restaurant)  %>
+      </p>
+
+       <ul>
+        <% @restaurant.reviews.each do |review| %>
+          <div class="review-card">
+            <li>
+              <p><%= review.content %></p>
+              <p><%= review.rating %></p>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
